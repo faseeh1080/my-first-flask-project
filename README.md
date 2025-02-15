@@ -9,9 +9,8 @@
 
 ## How to Run the App
 
-To run the application, use the flask command or python -m flask. You need to tell the Flask where your application is with the --app option. Type the command `$ flask --app hello run` in your terminal.
-
-If the file is named `app.py` or `wsgi.py`, you don’t have to use `--app`.
+- Run: `flask --app flaskr run`
+- Run with Debugging: `flask --app flaskr run --debug`
 
 ## More Information
 
