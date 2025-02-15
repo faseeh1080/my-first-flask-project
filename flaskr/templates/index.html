@@ -4,12 +4,32 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Faseeh1080</title>
-    <link rel="stylesheet" href="http://127.0.0.1:5000/static/styles.css">
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+
+    <style>
+        body {
+            background-image: url('https://faseehapps.github.io/assets/forest.jpg'); /* Replace with your image URL */
+            background-position: center; /* Centers the background */
+            background-repeat: no-repeat; /* Prevents the image from repeating */
+            background-size: cover; /* Makes the image cover the entire viewport */
+            height: 100vh; /* Ensures the body takes full height */
+            margin: 0; /* Removes default margin */
+        }
+
+        h1, h2, h3, h4, p {
+            font-family: Arial, Helvetica, sans-serif;
+            text-align: center;
+        }
+    </style>
+
 </head>
 <body>
     <div class="strip-container">
         <h1>Welcome!</h1>
-        <p>This is my first dynamic web application. I made this using Python and Flask.</p>
+        <p>I am Faseeh and this is my first dynamic web application. I made this using Python and Flask.</p>
+        <a href="{{ url_for('logout') }}">
+            <button>Logout</button>
+        </a>
     </div>
 </body>
 </html>

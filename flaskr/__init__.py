@@ -1,6 +1,6 @@
 import os
 
-from flask import Flask, render_template
+from flask import Flask, render_template,  request, redirect, url_for, session
 
 
 def create_app(test_config=None):
@@ -25,10 +25,34 @@ def create_app(test_config=None):
         pass
 
     # the main page
-    @app.route('/')
-    def hello():
+    @app.route('/', methods=['GET', 'POST'])
+    def home():
+        if 'logged_in' not in session:
+            return redirect(url_for('login'))
+
         return render_template("index.html")
     
+    # the login page
+    @app.route('/login', methods=['GET', 'POST'])
+    def login():
+        if request.method == 'POST':
+            entered_password = request.form['password']
+            
+            if entered_password == "You didn't see anything.":
+                session['logged_in'] = True
+                return redirect(url_for('home'))
+            else:
+                error_message = "Invalid password. Please try again."
+                return render_template('login.html', error_message=error_message)
+        
+        return render_template('login.html')
+
+    # the logout page
+    @app.route('/logout')
+    def logout():
+        session.clear()
+        return redirect(url_for('login'))
+
     from . import db
     db.init_app(app)
 
