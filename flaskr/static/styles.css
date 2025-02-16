@@ -24,3 +24,10 @@ body {
 .text-align-center {
     text-align: center;
 }
+
+.story-box {
+    display: flex;
+    flex-direction: column;
+    padding: 10px;
+    border: 1px solid #c4c4c4;
+}
