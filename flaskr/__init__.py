@@ -51,15 +51,16 @@ def create_app(test_config=None):
     # the review page
     @app.route('/review', methods=['POST'])
     def review():
+        entered_name = request.form['name']
         entered_review = request.form['review']
 
-        if entered_review == "":
-            return 'Review cannot be empty'
+        if entered_name == "" or entered_review == "":
+            return 'Entries cannot be empty'
         
         db = get_db()
         db.execute(
-            "INSERT INTO review (review) VALUES (?)",
-            (entered_review,)
+            "INSERT INTO reviews (name, review) VALUES (?, ?)",
+            (entered_name, entered_review)
         )
         db.commit()
         return 'success'
