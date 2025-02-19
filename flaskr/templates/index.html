@@ -22,6 +22,14 @@
         </div>
 
         <p class="text-align-center"><i>The End.<br>Thanks for reading.</i></p>
+
+        <div class="review-box">
+            <form method="POST" action="/review">
+                <input type="text" name="review" placeholder="Your review" required>
+                <button type="submit">Post</button>
+            </form>
+        </div>
+
         <a href="{{ url_for('logout') }}">
             <button>Logout</button>
         </a>

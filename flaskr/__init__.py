@@ -47,6 +47,14 @@ def create_app(test_config=None):
         
         return render_template('login.html')
 
+    # the review page
+    @app.route('/review', methods=['POST'])
+    def review():
+        entered_review = request.form['review']
+        if entered_review != "":
+            return 'success'
+        return 'Review cannot be empty'
+
     # the logout page
     @app.route('/logout')
     def logout():

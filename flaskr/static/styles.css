@@ -32,3 +32,10 @@ body {
     border-top: 1px solid #c4c4c4;
     border-bottom: 1px solid #c4c4c4;
 }
+
+.review-box {
+    display: flex;
+    flex-direction: column;
+    padding: 16px;
+    margin: 0px;
+}
