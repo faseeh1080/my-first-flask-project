@@ -12,6 +12,10 @@
 - Run: `flask --app flaskr run`
 - Run with Debugging: `flask --app flaskr run --debug`
 
+## Initialize the SQLite Database
+
+- `flask --app flaskr init-db`
+
 ## More Information
 
 - [Flask Quickstart](https://flask.palletsprojects.com/en/stable/quickstart/)
