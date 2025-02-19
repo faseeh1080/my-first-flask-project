@@ -2,6 +2,7 @@ import os
 
 from flask import Flask, render_template,  request, redirect, url_for, session
 
+from .db import get_db
 
 def create_app(test_config=None):
     # create and configure the app
@@ -51,9 +52,17 @@ def create_app(test_config=None):
     @app.route('/review', methods=['POST'])
     def review():
         entered_review = request.form['review']
-        if entered_review != "":
-            return 'success'
-        return 'Review cannot be empty'
+
+        if entered_review == "":
+            return 'Review cannot be empty'
+        
+        db = get_db()
+        db.execute(
+            "INSERT INTO review (review) VALUES (?)",
+            (entered_review,)
+        )
+        db.commit()
+        return 'success'
 
     # the logout page
     @app.route('/logout')
