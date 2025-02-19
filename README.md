@@ -14,4 +14,5 @@
 
 ## More Information
 
-Check out the [Flask Quickstart](https://flask.palletsprojects.com/en/stable/quickstart/) documentation.
+- [Flask Quickstart](https://flask.palletsprojects.com/en/stable/quickstart/)
+- [Flask Tutorial](https://flask.palletsprojects.com/en/stable/tutorial/)
