@@ -48,9 +48,9 @@ def create_app(test_config=None):
         
         return render_template('login.html')
 
-    # the review page
-    @app.route('/review', methods=['POST'])
-    def review():
+    # review submission page
+    @app.route('/submit-review', methods=['POST'])
+    def submit_review():
         entered_name = request.form['name']
         entered_review = request.form['review']
 
