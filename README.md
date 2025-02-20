@@ -5,7 +5,10 @@
 - Run `python3 -m venv .venv` for Linux and `py -3 -m venv .venv` for Windows to create a Python virtual environment named `.venv`
 - Run `source .venv/bin/activate` or `. .venv/bin/activate` for Linux and `.venv\Scripts\activate` to activate the virtual environment in your terminal.
 - If you are using VS Code, select the interpreter from the virtual environment.
-- Run `pip install Flask` to install Flask. **Ensure the virtual environment is activated on your terminal beore working with the app.**
+- Run `pip install Flask` to install Flask.
+- Run `pip install flask-cors` to install Flask-CORS. This website uses Flask-CORS to enable cross-origin resource sharing, allowing *faseehapps.github.io* to retrieve reviews from the database.
+
+**Always ensure the virtual environment is activated on your terminal beore working with the app.**
 
 ## How to Run the App
 

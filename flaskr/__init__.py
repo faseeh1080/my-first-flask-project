@@ -1,7 +1,6 @@
 import os
-
 from flask import Flask, render_template,  request, redirect, url_for, session, jsonify
-
+from flask_cors import CORS
 from .db import get_db
 
 def create_app(test_config=None):
@@ -11,6 +10,7 @@ def create_app(test_config=None):
         SECRET_KEY='dev',
         DATABASE=os.path.join(app.instance_path, 'flaskr.sqlite'),
     )
+    CORS(app, origins=["https://faseehapps.github.io"]) # cross-origin resource sharing
 
     if test_config is None:
         # load the instance config, if it exists, when not testing
