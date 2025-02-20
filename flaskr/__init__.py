@@ -1,6 +1,6 @@
 import os
 
-from flask import Flask, render_template,  request, redirect, url_for, session
+from flask import Flask, render_template,  request, redirect, url_for, session, jsonify
 
 from .db import get_db
 
@@ -64,6 +64,14 @@ def create_app(test_config=None):
         )
         db.commit()
         return 'success'
+    
+    # review retrieval page
+    @app.route('/get-reviews', methods=['GET', 'POST'])
+    def get_reviews():
+        db = get_db()
+        cursor = db.execute("SELECT * FROM reviews")
+        results = cursor.fetchall()
+        return jsonify([dict(row) for row in results]) # Convert rows to dictionaries
 
     # the logout page
     @app.route('/logout')
