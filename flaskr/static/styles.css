@@ -6,7 +6,7 @@ body {
     align-items: center;
 }
 
-.strip-container {
+.container {
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -14,28 +14,4 @@ body {
     max-width: 800px;
     padding: 20px;
     box-sizing: border-box;
-}
-
-.title {
-    width: 100%;
-    text-align: center;
-}
-
-.text-align-center {
-    text-align: center;
-}
-
-.story-box {
-    display: flex;
-    flex-direction: column;
-    padding: 10px;
-    border-top: 1px solid #c4c4c4;
-    border-bottom: 1px solid #c4c4c4;
-}
-
-.review-box {
-    display: flex;
-    flex-direction: column;
-    padding: 16px;
-    margin: 0px;
 }
