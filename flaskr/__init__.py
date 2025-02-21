@@ -70,7 +70,7 @@ def create_app(test_config=None):
     def get_reviews():
         db = get_db()
         cursor = db.execute("SELECT * FROM reviews")
-        results = cursor.fetchall() # returns a list of tuples
+        results = cursor.fetchall()[-10:] # returns a list of tuples
         results.reverse()
         return jsonify([dict(row) for row in results]) # convert rows to dictionaries
 
