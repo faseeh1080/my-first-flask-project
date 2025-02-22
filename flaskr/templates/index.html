@@ -7,25 +7,23 @@
     <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
 </head>
 <body>
-    <div class="container">
-        <h1>Welcome!</h1>
+    <h1>Admin Panel</h1>
 
-        <form action="/submit-review" method="post">
-            <label for="name">Name:</label>
-            <input type="text" id="name" name="name" required>
-            <br><br>
-            <label for="review">Review:</label>
-            <textarea id="review" name="review" required></textarea>
-            <br><br>
-            <button type="submit">Submit</button>
-        </form>
+    <form action="/submit-review" method="post">
+        <label for="name">Name:</label>
+        <input type="text" id="name" name="name" required>
+        <br><br>
+        <label for="review">Review:</label>
+        <textarea id="review" name="review" required></textarea>
+        <br><br>
+        <button type="submit">Submit</button>
+    </form>
 
-        <a href="{{ url_for('logout') }}">
-            <button>Logout</button>
-        </a>
+    <a href="{{ url_for('logout') }}">
+        <button>Logout</button>
+    </a>
 
-        <div id="reviews"></div>
-    </div>
+    <div id="reviews"></div>
 
     <script>
         async function fetchReviews() {
