@@ -36,7 +36,7 @@
 
                 data.forEach(review => {
                     let div = document.createElement('div');
-                    div.innerHTML = `<p><strong>${review.name}</strong><br>${review.review}</p>`;
+                    div.innerHTML = `<p>id: ${review.id}<br>name: ${review.name}<br>review: ${review.review}</p>`;
                     reviewsContainer.appendChild(div);
                 });
             } catch (error) {
