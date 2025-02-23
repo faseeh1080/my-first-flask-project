@@ -51,19 +51,20 @@ def create_app(test_config=None):
     # review submission page
     @app.route('/submit-review', methods=['POST'])
     def submit_review():
-        entered_name = request.form['name']
-        entered_review = request.form['review']
+        entered_name = request.form.get('name', '').strip()
+        entered_review = request.form.get('review', '').strip()
 
-        if entered_name == "" or entered_review == "":
-            return 'Entries cannot be empty'
-        
+        if not entered_name or not entered_review:
+            return jsonify({'error': 'Entries cannot be empty'}), 400 # Bad request
+
         db = get_db()
         db.execute(
             "INSERT INTO reviews (name, review) VALUES (?, ?)",
             (entered_name, entered_review)
         )
         db.commit()
-        return 'success'
+
+        return jsonify({'message': 'success'}), 201
     
     # review retrieval page
     @app.route('/get-reviews', methods=['GET', 'POST'])
