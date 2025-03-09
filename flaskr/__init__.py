@@ -56,6 +56,9 @@ def create_app(test_config=None):
 
         if not entered_name or not entered_review:
             return jsonify({'error': 'Entries cannot be empty'}), 400 # Bad request
+        
+        if len(entered_review) > 500:
+            return jsonify({'error': 'Review is more than 500 characters'}), 400 # Bad request
 
         db = get_db()
         db.execute(
@@ -70,10 +73,9 @@ def create_app(test_config=None):
     @app.route('/get-reviews', methods=['GET', 'POST'])
     def get_reviews():
         db = get_db()
-        cursor = db.execute("SELECT * FROM reviews")
-        results = cursor.fetchall()[-10:] # returns a list of tuples
-        results.reverse()
-        return jsonify([dict(row) for row in results]) # convert rows to dictionaries
+        cursor = db.execute("SELECT * FROM reviews ORDER BY id DESC LIMIT 10")
+        results = cursor.fetchall()
+        return jsonify([dict(row) for row in results])
 
     # the logout page
     @app.route('/logout')
